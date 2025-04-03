@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col min-h-screen  px-10 py-10">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full mx-auto max-w-[1500px] py-12 md:py-24 lg:py-32 px-12 md:px-24 lg:px-32 bg-muted">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
             <div className="flex flex-col justify-center space-y-4">
@@ -48,9 +48,9 @@ export default function AboutPage() {
       </section>
 
       {/* Biography Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="w-full py-12 md:py-24 lg:py-32 mx-auto max-w-[1000px]">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-[1000px] space-y-12">
+          <div className=" space-y-12">
             <div className="space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About{"   "}
@@ -84,120 +84,6 @@ export default function AboutPage() {
                 Sati Sadhani Rajyik Vishwavidyalaya, Assam, Dr. Saikia continues
                 to inspire generations through his writing, research, and
                 academic contributions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Books
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-[800px] space-y-12">
-            <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Featured Books
-              </h2>
-              <p className="text-muted-foreground md:text-xl">
-                Explore my most popular works
-              </p>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-3">
-                <div className="overflow-hidden rounded-lg">
-                  <Image
-                    alt="Book Cover: The Silent Echo"
-                    className="aspect-[2/3] object-cover transition-all hover:scale-105"
-                    height={300}
-                    width={200}
-                    src="/placeholder.svg?height=300&width=200"
-                  />
-                </div>
-                <h3 className="text-xl font-bold">The Silent Echo</h3>
-                <p className="text-sm text-muted-foreground">2018</p>
-              </div>
-              <div className="flex flex-col items-center space-y-3">
-                <div className="overflow-hidden rounded-lg">
-                  <Image
-                    alt="Book Cover: Beyond the Horizon"
-                    className="aspect-[2/3] object-cover transition-all hover:scale-105"
-                    height={300}
-                    width={200}
-                    src="/placeholder.svg?height=300&width=200"
-                  />
-                </div>
-                <h3 className="text-xl font-bold">Beyond the Horizon</h3>
-                <p className="text-sm text-muted-foreground">2015</p>
-              </div>
-              <div className="flex flex-col items-center space-y-3">
-                <div className="overflow-hidden rounded-lg">
-                  <Image
-                    alt="Book Cover: The Last Letter"
-                    className="aspect-[2/3] object-cover transition-all hover:scale-105"
-                    height={300}
-                    width={200}
-                    src="/placeholder.svg?height=300&width=200"
-                  />
-                </div>
-                <h3 className="text-xl font-bold">The Last Letter</h3>
-                <p className="text-sm text-muted-foreground">2020</p>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <Button variant="outline" size="lg">
-                <BookOpen className="mr-2 h-4 w-4" />
-                View All Books
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Contact Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-        <div className="container px-4 md:px-6">
-          <div className="mx-auto max-w-[800px] space-y-12">
-            <div className="space-y-4 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Get in Touch
-              </h2>
-              <p className="text-muted-foreground md:text-xl">
-                Connect with me on social media or through my publisher
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center space-y-4">
-              <div className="flex space-x-4">
-                <Link
-                  href="#"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-input bg-background shadow-sm transition-colors hover:bg-accent"
-                >
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Link>
-                <Link
-                  href="#"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-input bg-background shadow-sm transition-colors hover:bg-accent"
-                >
-                  <Instagram className="h-5 w-5" />
-                  <span className="sr-only">Instagram</span>
-                </Link>
-                <Link
-                  href="#"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-input bg-background shadow-sm transition-colors hover:bg-accent"
-                >
-                  <Mail className="h-5 w-5" />
-                  <span className="sr-only">Email</span>
-                </Link>
-              </div>
-              <p className="text-center text-muted-foreground">
-                For speaking engagements and rights inquiries, please contact my
-                literary agent at <br />
-                <Link
-                  href="mailto:agent@literaryagency.com"
-                  className="font-medium underline underline-offset-4"
-                >
-                  agent@literaryagency.com
-                </Link>
               </p>
             </div>
           </div>

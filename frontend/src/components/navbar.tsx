@@ -16,16 +16,15 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Writings", path: "/writings" },
 
-    { name: "Store", path: "/store" },
+    { name: "Content", path: "/content" },
+    { name: "Books", path: "/books" },
     { name: "Contact", path: "/contact" },
-    
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 px-4 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container max-w-7xl mx-auto flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <BookOpen className="h-6 w-6" />
@@ -39,7 +38,7 @@ export default function Navbar() {
             <Link
               key={item.path}
               href={item.path}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              className={`text-lg font-medium transition-colors hover:text-primary ${
                 pathname === item.path
                   ? "text-primary"
                   : "text-muted-foreground"

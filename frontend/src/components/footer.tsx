@@ -1,13 +1,12 @@
 import Link from "next/link"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+
 import { Separator } from "@/components/ui/separator"
 import { BookOpen, Twitter, Instagram, Youtube, ArrowRight } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-muted my-10 px-4 ">
-      <div className="container px-4 py-12 md:py-16 lg:py-20">
+    <footer className="bg-muted max-w-[2100px] mx-auto px-4 ">
+      <div className="container  px-4 md:px-12 py-12 md:py-16 lg:py-20">
         <div className="grid gap-16 md:grid-cols-2 ">
           {/* Author Info */}
           <div className="space-y-4">
@@ -82,8 +81,6 @@ export default function Footer() {
               </Link>
             </nav>
           </div>
-
-          {/* Newsletter */}
         </div>
 
         <Separator className="my-8" />

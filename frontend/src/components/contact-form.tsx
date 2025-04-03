@@ -73,10 +73,6 @@ export default function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-center dark:border-green-900 dark:bg-green-950">
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
         <div className="flex justify-center">
           <CheckCircle className="h-12 w-12 text-green-500" />
         </div>
@@ -84,7 +80,8 @@ export default function ContactForm() {
           Message Sent!
         </h3>
         <p className="mt-2 text-green-700 dark:text-green-400">
-          Thank you for your message. I&apos;ll get back to you as soon as possible.
+          Thank you for your message. I&apos;ll get back to you as soon as
+          possible.
         </p>
         <Button
           className="mt-4"

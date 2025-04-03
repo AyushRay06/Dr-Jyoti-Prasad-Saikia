@@ -7,7 +7,7 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Author Name | Official Website",
+  title: "Dr. Jyoti Prasad Saikia",
   description:
     "Official website of Author Name, award-winning novelist and storyteller",
 }
@@ -20,11 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="max-w-7xl mx-auto">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   )

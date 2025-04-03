@@ -1,80 +1,108 @@
-import { BookCard } from "@/components/book-card"
-import { Separator } from "@/components/ui/separator"
+// app/books/page.tsx
 
-// This would typically come from a database or CMS
-const books = [
-  {
-    id: "1",
-    title: "The Silent Echo",
-    description:
-      "A haunting tale of loss and redemption set against the backdrop of a small coastal town. Winner of the National Book Award.",
-    year: "2018",
-    amazonLink: "https://www.amazon.com/dp/example1",
-  },
-  {
-    id: "2",
-    title: "Beyond the Horizon",
-    description:
-      "An epic journey across continents and generations, exploring the bonds that connect us all. Pulitzer Prize Finalist.",
-    year: "2015",
-    amazonLink: "https://www.amazon.com/dp/example2",
-  },
-  {
-    id: "3",
-    title: "The Last Letter",
-    description:
-      "A poignant story of love and sacrifice during wartime, told through a series of letters discovered decades later.",
-    year: "2020",
-    amazonLink: "https://www.amazon.com/dp/example3",
-  },
-  {
-    id: "4",
-    title: "Midnight Crossing",
-    description:
-      "A thrilling mystery set at the intersection of two worlds, where nothing is as it seems. Costa Book Award winner.",
-    year: "2012",
-    amazonLink: "https://www.amazon.com/dp/example4",
-  },
-  {
-    id: "5",
-    title: "Whispers of the Tide",
-    description:
-      "The debut novel that launched a celebrated career, exploring themes of family secrets and natural beauty.",
-    year: "2005",
-    amazonLink: "https://www.amazon.com/dp/example5",
-  },
-  {
-    id: "6",
-    title: "The Glass Room",
-    description:
-      "A contemporary drama about truth, perception, and the spaces we create between ourselves and others.",
-    year: "2022",
-    amazonLink: "https://www.amazon.com/dp/example6",
-  },
-]
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { FiBook, FiExternalLink, FiSearch } from "react-icons/fi"
+import axios from "axios"
 
-export default function BooksPage() {
+interface Book {
+  id: string
+  title: string
+  description: string
+  imageURL: string
+  buyLink: string
+}
+
+const BooksPage = async () => {
+  const response = await axios.get("http://localhost:5000/api/books")
+  const books: Book[] = response.data
+
   return (
-    <div className="container px-4 py-12 md:py-16 lg:py-24">
-      <div className="mx-auto max-w-6xl space-y-12">
-        <div className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">
-            Books
-          </h1>
-          <p className="max-w-[700px] text-muted-foreground md:text-xl">
-            Explore my complete collection of novels spanning multiple genres
-            and time periods.
-          </p>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section - Now properly centered */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-primary/10 to-background">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Our Book Collection
+              </h1>
+              <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                Discover thoughtfully curated works from our authors
+              </p>
+            </div>
+            <div className="w-full max-w-md mx-auto"></div>
+          </div>
         </div>
+      </section>
 
-        <Separator />
-
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {books.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
+      {/* Book Grid - Now properly centered */}
+      <section className="w-full py-12 md:py-16">
+        <div className="container px-4 md:px-6 mx-auto">
+          {books.length === 0 ? (
+            <div className="flex flex-col items-center justify-center space-y-4 text-center h-[300px]">
+              <FiBook className="h-12 w-12 text-muted-foreground" />
+              <p className="text-lg text-muted-foreground">
+                No books available yet. Check back soon.
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+                {books.map((book) => (
+                  <Card
+                    key={book.id}
+                    className="hover:shadow-md transition-shadow w-full max-w-sm"
+                  >
+                    <CardHeader>
+                      <div className="aspect-[3/4] bg-muted rounded-lg overflow-hidden mb-4">
+                        {book.imageURL && (
+                          <img
+                            src={`${
+                              process.env.NEXT_PUBLIC_IMAGEKIT_URL
+                            }/tr:w-500,h-667/${book.imageURL.split("/").pop()}`}
+                            alt={book.title}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        )}
+                      </div>
+                      <CardTitle className="text-lg line-clamp-1">
+                        {book.title}
+                      </CardTitle>
+                      <CardDescription className="line-clamp-2">
+                        {book.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardFooter>
+                      <Button asChild className="w-full" variant="outline">
+                        <a
+                          href={book.buyLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          Purchase <FiExternalLink className="h-4 w-4" />
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )}
         </div>
-      </div>
+      </section>
     </div>
   )
 }
+
+export default BooksPage

@@ -33,12 +33,21 @@ model Content {
   @@map("content")
 }
 
+model Books{
+  id String @id @default(uuid())
+  title String
+  description String
+  imageURL String
+  buyLink String
+}
+
 model contact{
   id Int @id @default(autoincrement())
   name String
   email String
   subject String
   message String
+  seen Boolean @default(false)
   createdAt DateTime @default(now())
 
 }
