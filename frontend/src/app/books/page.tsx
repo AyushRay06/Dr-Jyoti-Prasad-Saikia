@@ -66,9 +66,7 @@ const BooksPage = async () => {
                       <div className="aspect-[3/4] bg-muted rounded-lg overflow-hidden mb-4">
                         {book.imageURL && (
                           <img
-                            src={`${
-                              process.env.NEXT_PUBLIC_IMAGEKIT_URL
-                            }/tr:w-500,h-667/${book.imageURL.split("/").pop()}`}
+                            src={book.imageURL}
                             alt={book.title}
                             className="w-full h-full object-cover"
                             loading="lazy"
